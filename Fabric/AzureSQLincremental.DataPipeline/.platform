@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "AzureSQLincremental"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1c68aea4-fcc9-a88a-40f2-2a1b5959fb39"
+  }
+}

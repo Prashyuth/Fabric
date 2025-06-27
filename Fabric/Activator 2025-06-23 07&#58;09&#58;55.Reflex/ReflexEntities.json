@@ -1,0 +1,23 @@
+[
+  {
+    "uniqueIdentifier": "63a34597-ac0c-4d22-b683-c829e7d2cf26",
+    "payload": {
+      "name": "EventStream",
+      "metadata": {
+        "eventstreamArtifactId": "91528e52-0ece-4194-893f-18624b87e578"
+      }
+    },
+    "type": "eventstreamSource-v1"
+  },
+  {
+    "uniqueIdentifier": "3cc3a5b2-7731-428f-9871-8cb8f351b165",
+    "payload": {
+      "name": "Eventstream_Stock-stream event",
+      "definition": {
+        "type": "Event",
+        "instance": "{\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"SourceEventStep\",\"id\":\"c0566f22-119e-451a-ae99-4d2f726ca367\",\"rows\":[{\"name\":\"SourceSelector\",\"kind\":\"SourceReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"63a34597-ac0c-4d22-b683-c829e7d2cf26\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  }
+]

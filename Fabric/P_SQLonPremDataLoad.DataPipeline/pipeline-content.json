@@ -1,0 +1,520 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "ForEach",
+        "typeProperties": {
+          "items": {
+            "value": "@pipeline().parameters.cw_items_fes",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "type": "Copy",
+              "typeProperties": {
+                "source": {
+                  "type": "SqlServerSource",
+                  "partitionOption": "None",
+                  "datasetSettings": {
+                    "type": "SqlServerTable",
+                    "typeProperties": {
+                      "schema": "Sales",
+                      "table": {
+                        "value": "@item().source.table",
+                        "type": "Expression"
+                      },
+                      "database": "AdventureWorks2019"
+                    },
+                    "schema": [],
+                    "externalReferences": {
+                      "connection": "58ced90a-b685-4793-b887-eae072a17639"
+                    },
+                    "annotations": []
+                  }
+                },
+                "sink": {
+                  "type": "LakehouseTableSink",
+                  "tableActionOption": "OverwriteSchema",
+                  "partitionOption": "None",
+                  "datasetSettings": {
+                    "type": "LakehouseTable",
+                    "typeProperties": {
+                      "schema": "Sales",
+                      "table": {
+                        "value": "@item().destination.table",
+                        "type": "Expression"
+                      }
+                    },
+                    "schema": [],
+                    "linkedService": {
+                      "name": "Bronze_Schema",
+                      "properties": {
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "artifactId": "6a0ff7a3-5b1b-84e3-4a0c-8ac66f5ed366",
+                          "workspaceId": "00000000-0000-0000-0000-000000000000",
+                          "rootFolder": "Tables"
+                        },
+                        "annotations": []
+                      }
+                    },
+                    "annotations": []
+                  }
+                },
+                "translator": {
+                  "value": "@item().copyActivity.translator",
+                  "type": "Expression"
+                },
+                "enableStaging": false
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Copy_fes",
+              "dependsOn": []
+            }
+          ]
+        },
+        "name": "ForEach_fes",
+        "dependsOn": []
+      }
+    ],
+    "parameters": {
+      "cw_items_fes": {
+        "type": "Array",
+        "defaultValue": [
+          {
+            "source": {
+              "table": "CountryRegionCurrency"
+            },
+            "destination": {
+              "table": "CountryRegionCurrency"
+            },
+            "copyActivity": {
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+                  {
+                    "source": {
+                      "name": "CountryRegionCode",
+                      "type": "String",
+                      "physicalType": "nvarchar",
+                      "length": "3"
+                    },
+                    "sink": {
+                      "name": "CountryRegionCode",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "CurrencyCode",
+                      "type": "String",
+                      "physicalType": "nchar",
+                      "length": "3"
+                    },
+                    "sink": {
+                      "name": "CurrencyCode",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "ModifiedDate",
+                      "type": "DateTime",
+                      "physicalType": "datetime"
+                    },
+                    "sink": {
+                      "name": "ModifiedDate",
+                      "physicalType": "timestamp"
+                    }
+                  }
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            }
+          },
+          {
+            "source": {
+              "table": "Customer"
+            },
+            "destination": {
+              "table": "Customer"
+            },
+            "copyActivity": {
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+                  {
+                    "source": {
+                      "name": "CustomerID",
+                      "type": "Int32",
+                      "physicalType": "int"
+                    },
+                    "sink": {
+                      "name": "CustomerID",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "PersonID",
+                      "type": "Int32",
+                      "physicalType": "int"
+                    },
+                    "sink": {
+                      "name": "PersonID",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "StoreID",
+                      "type": "Int32",
+                      "physicalType": "int"
+                    },
+                    "sink": {
+                      "name": "StoreID",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "TerritoryID",
+                      "type": "Int32",
+                      "physicalType": "int"
+                    },
+                    "sink": {
+                      "name": "TerritoryID",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "AccountNumber",
+                      "type": "String",
+                      "physicalType": "varchar",
+                      "length": "10"
+                    },
+                    "sink": {
+                      "name": "AccountNumber",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "rowguid",
+                      "type": "Guid",
+                      "physicalType": "uniqueidentifier"
+                    },
+                    "sink": {
+                      "name": "rowguid",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "ModifiedDate",
+                      "type": "DateTime",
+                      "physicalType": "datetime"
+                    },
+                    "sink": {
+                      "name": "ModifiedDate",
+                      "physicalType": "timestamp"
+                    }
+                  }
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            }
+          },
+          {
+            "source": {
+              "table": "SalesOrderDetail"
+            },
+            "destination": {
+              "table": "SalesOrderDetail"
+            },
+            "copyActivity": {
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+                  {
+                    "source": {
+                      "name": "SalesOrderID",
+                      "type": "Int32",
+                      "physicalType": "int"
+                    },
+                    "sink": {
+                      "name": "SalesOrderID",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "SalesOrderDetailID",
+                      "type": "Int32",
+                      "physicalType": "int"
+                    },
+                    "sink": {
+                      "name": "SalesOrderDetailID",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "CarrierTrackingNumber",
+                      "type": "String",
+                      "physicalType": "nvarchar",
+                      "length": "25"
+                    },
+                    "sink": {
+                      "name": "CarrierTrackingNumber",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "OrderQty",
+                      "type": "Int16",
+                      "physicalType": "smallint"
+                    },
+                    "sink": {
+                      "name": "OrderQty",
+                      "physicalType": "short"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "ProductID",
+                      "type": "Int32",
+                      "physicalType": "int"
+                    },
+                    "sink": {
+                      "name": "ProductID",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "SpecialOfferID",
+                      "type": "Int32",
+                      "physicalType": "int"
+                    },
+                    "sink": {
+                      "name": "SpecialOfferID",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "UnitPrice",
+                      "type": "Decimal",
+                      "physicalType": "money",
+                      "scale": 4,
+                      "precision": 19
+                    },
+                    "sink": {
+                      "name": "UnitPrice",
+                      "physicalType": "decimal",
+                      "scale": 18,
+                      "precision": 38
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "UnitPriceDiscount",
+                      "type": "Decimal",
+                      "physicalType": "money",
+                      "scale": 4,
+                      "precision": 19
+                    },
+                    "sink": {
+                      "name": "UnitPriceDiscount",
+                      "physicalType": "decimal",
+                      "scale": 18,
+                      "precision": 38
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "LineTotal",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 38
+                    },
+                    "sink": {
+                      "name": "LineTotal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 38
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "rowguid",
+                      "type": "Guid",
+                      "physicalType": "uniqueidentifier"
+                    },
+                    "sink": {
+                      "name": "rowguid",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "ModifiedDate",
+                      "type": "DateTime",
+                      "physicalType": "datetime"
+                    },
+                    "sink": {
+                      "name": "ModifiedDate",
+                      "physicalType": "timestamp"
+                    }
+                  }
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            }
+          },
+          {
+            "source": {
+              "table": "SalesPerson"
+            },
+            "destination": {
+              "table": "SalesPerson"
+            },
+            "copyActivity": {
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+                  {
+                    "source": {
+                      "name": "BusinessEntityID",
+                      "type": "Int32",
+                      "physicalType": "int"
+                    },
+                    "sink": {
+                      "name": "BusinessEntityID",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "TerritoryID",
+                      "type": "Int32",
+                      "physicalType": "int"
+                    },
+                    "sink": {
+                      "name": "TerritoryID",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "SalesQuota",
+                      "type": "Decimal",
+                      "physicalType": "money"
+                    },
+                    "sink": {
+                      "name": "SalesQuota",
+                      "physicalType": "decimal"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "Bonus",
+                      "type": "Decimal",
+                      "physicalType": "money"
+                    },
+                    "sink": {
+                      "name": "Bonus",
+                      "physicalType": "decimal"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "CommissionPct",
+                      "type": "Decimal",
+                      "physicalType": "smallmoney"
+                    },
+                    "sink": {
+                      "name": "CommissionPct",
+                      "physicalType": "decimal"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "SalesYTD",
+                      "type": "Decimal",
+                      "physicalType": "money"
+                    },
+                    "sink": {
+                      "name": "SalesYTD",
+                      "physicalType": "decimal"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "SalesLastYear",
+                      "type": "Decimal",
+                      "physicalType": "money"
+                    },
+                    "sink": {
+                      "name": "SalesLastYear",
+                      "physicalType": "decimal"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "rowguid",
+                      "type": "Guid",
+                      "physicalType": "uniqueidentifier"
+                    },
+                    "sink": {
+                      "name": "rowguid",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "ModifiedDate",
+                      "type": "DateTime",
+                      "physicalType": "datetime"
+                    },
+                    "sink": {
+                      "name": "ModifiedDate",
+                      "physicalType": "timestamp"
+                    }
+                  }
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

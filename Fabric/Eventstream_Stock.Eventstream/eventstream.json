@@ -1,0 +1,67 @@
+{
+  "sources": [
+    {
+      "id": "0846af69-5fa0-4caa-864f-c0a454e9fc6b",
+      "name": "StockMarket",
+      "type": "SampleData",
+      "properties": {
+        "type": "StockMarket"
+      }
+    }
+  ],
+  "destinations": [
+    {
+      "id": "63a34597-ac0c-4d22-b683-c829e7d2cf26",
+      "name": "f6ZLpSu61CsXKlXyOFmQgD-1b58eb93-9d2d-4d21-96ab-adbf79854134",
+      "type": "Activator",
+      "properties": {
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "79854134-adbf-96ab-4d21-9d2d1b58eb93",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "Eventstream_Stock-stream"
+        }
+      ]
+    },
+    {
+      "id": "f4d038bf-b348-496e-863f-3d1c8ad1f026",
+      "name": "1966fb86-6572-4fd1-b55f-245a4e88c6cb",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "DirectIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "e01fc4cd-8d27-bbfc-4508-2e7f14dd7abb",
+        "tableName": "Stock",
+        "connectionName": "Eventstream_Stock_Stock_Event_House-Stoc",
+        "mappingRuleName": "Stock_mapping"
+      },
+      "inputNodes": [
+        {
+          "name": "Eventstream_Stock-stream"
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "9f162d4b-9eb9-481a-86e3-739a485ad530",
+      "name": "Eventstream_Stock-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "StockMarket"
+        }
+      ]
+    }
+  ],
+  "operators": [],
+  "compatibilityLevel": "1.0"
+}

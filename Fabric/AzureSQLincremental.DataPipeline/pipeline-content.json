@@ -1,0 +1,341 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Lookup AZ SQL Table List",
+        "type": "Lookup",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None"
+          },
+          "firstRowOnly": false,
+          "datasetSettings": {
+            "annotations": [],
+            "linkedService": {
+              "name": "Azure SQl WH",
+              "properties": {
+                "annotations": [],
+                "type": "DataWarehouse",
+                "typeProperties": {
+                  "endpoint": "p7ub6dwkovcevahrbanqrwyk6u-xavjxpmc2jkebec6ue7ilvb2yy.datawarehouse.fabric.microsoft.com",
+                  "artifactId": "f1b8f360-696a-43a6-9465-f1a777de548c",
+                  "workspaceId": "bd9b2ab8-d282-4054-905e-a13e85d43ac6"
+                }
+              }
+            },
+            "type": "DataWarehouseTable",
+            "schema": [],
+            "typeProperties": {
+              "schema": "dbo",
+              "table": "incr_info"
+            }
+          }
+        }
+      },
+      {
+        "name": "ForEach1",
+        "type": "ForEach",
+        "dependsOn": [
+          {
+            "activity": "Lookup AZ SQL Table List",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "typeProperties": {
+          "items": {
+            "value": "@activity('Lookup AZ SQL Table List').output.value",
+            "type": "Expression"
+          },
+          "isSequential": true,
+          "activities": [
+            {
+              "name": "Table Name",
+              "type": "SetVariable",
+              "dependsOn": [],
+              "policy": {
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "variableName": "Table_Name",
+                "value": {
+                  "value": "@item().tablename",
+                  "type": "Expression"
+                }
+              }
+            },
+            {
+              "name": "Schema Name",
+              "type": "SetVariable",
+              "dependsOn": [],
+              "policy": {
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "variableName": "Schema_Name",
+                "value": {
+                  "value": "@item().Schema_name",
+                  "type": "Expression"
+                }
+              }
+            },
+            {
+              "name": "Copy data from Azure SQL",
+              "type": "Copy",
+              "dependsOn": [
+                {
+                  "activity": "Schema Name",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                },
+                {
+                  "activity": "Table Name",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                },
+                {
+                  "activity": "Incremental Clumn",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                },
+                {
+                  "activity": "Incremental Value",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ],
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "source": {
+                  "type": "AzureSqlSource",
+                  "sqlReaderQuery": {
+                    "value": "@concat('Select * from ' ,variables('Schema_Name'), '.',variables('Table_Name') , ' where ' ,variables('Incremental_Column') ,'>',variables('Incremental_value'))",
+                    "type": "Expression"
+                  },
+                  "queryTimeout": "02:00:00",
+                  "partitionOption": "None",
+                  "datasetSettings": {
+                    "annotations": [],
+                    "type": "AzureSqlTable",
+                    "schema": [],
+                    "typeProperties": {
+                      "database": "FabricSQL"
+                    },
+                    "externalReferences": {
+                      "connection": "0921fdae-5e1e-49ed-969e-e9fc52aae6d1"
+                    }
+                  }
+                },
+                "sink": {
+                  "type": "DataWarehouseSink",
+                  "allowCopyCommand": true,
+                  "copyCommandSettings": {},
+                  "datasetSettings": {
+                    "annotations": [],
+                    "linkedService": {
+                      "name": "Azure SQl WH",
+                      "properties": {
+                        "annotations": [],
+                        "type": "DataWarehouse",
+                        "typeProperties": {
+                          "endpoint": "p7ub6dwkovcevahrbanqrwyk6u-xavjxpmc2jkebec6ue7ilvb2yy.datawarehouse.fabric.microsoft.com",
+                          "artifactId": "f1b8f360-696a-43a6-9465-f1a777de548c",
+                          "workspaceId": "bd9b2ab8-d282-4054-905e-a13e85d43ac6"
+                        }
+                      }
+                    },
+                    "type": "DataWarehouseTable",
+                    "schema": [],
+                    "typeProperties": {
+                      "schema": "dbo",
+                      "table": {
+                        "value": "@variables('Table_Name')",
+                        "type": "Expression"
+                      }
+                    }
+                  }
+                },
+                "enableStaging": true,
+                "translator": {
+                  "type": "TabularTranslator",
+                  "typeConversion": true,
+                  "typeConversionSettings": {
+                    "allowDataTruncation": true,
+                    "treatBooleanAsNumber": false
+                  }
+                }
+              }
+            },
+            {
+              "name": "Incremental Clumn",
+              "type": "SetVariable",
+              "dependsOn": [],
+              "policy": {
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "variableName": "Incremental_Column",
+                "value": {
+                  "value": "@item().Load_Column",
+                  "type": "Expression"
+                }
+              }
+            },
+            {
+              "name": "Incremental Value",
+              "type": "SetVariable",
+              "dependsOn": [],
+              "policy": {
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "variableName": "Incremental_value",
+                "value": {
+                  "value": "@concat('''',item().Loaddate,'''')",
+                  "type": "Expression"
+                }
+              }
+            },
+            {
+              "name": "UPdate Incr TABLE",
+              "type": "SqlServerStoredProcedure",
+              "dependsOn": [
+                {
+                  "activity": "Extracting max Date values",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ],
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "storedProcedureName": "[dbo].[AzureSQL_sp_Update_load_Incr]",
+                "storedProcedureParameters": {
+                  "Table_name": {
+                    "value": {
+                      "value": "@variables('Table_Name')",
+                      "type": "Expression"
+                    },
+                    "type": "String"
+                  },
+                  "incremental_load_value": {
+                    "value": {
+                      "value": "@activity('Extracting max Date values').output.firstRow.Date",
+                      "type": "Expression"
+                    },
+                    "type": "Datetime"
+                  }
+                }
+              },
+              "linkedService": {
+                "name": "Azure SQl WH",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "p7ub6dwkovcevahrbanqrwyk6u-xavjxpmc2jkebec6ue7ilvb2yy.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "f1b8f360-696a-43a6-9465-f1a777de548c",
+                    "workspaceId": "bd9b2ab8-d282-4054-905e-a13e85d43ac6"
+                  }
+                }
+              }
+            },
+            {
+              "name": "Extracting max Date values",
+              "type": "Lookup",
+              "dependsOn": [
+                {
+                  "activity": "Copy data from Azure SQL",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ],
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "source": {
+                  "type": "DataWarehouseSource",
+                  "sqlReaderQuery": {
+                    "value": "@concat('Select Max(',variables('Incremental_Column'),') Date from dbo.',variables('Table_Name'))",
+                    "type": "Expression"
+                  },
+                  "queryTimeout": "02:00:00",
+                  "partitionOption": "None"
+                },
+                "datasetSettings": {
+                  "annotations": [],
+                  "linkedService": {
+                    "name": "Azure SQl WH",
+                    "properties": {
+                      "annotations": [],
+                      "type": "DataWarehouse",
+                      "typeProperties": {
+                        "endpoint": "p7ub6dwkovcevahrbanqrwyk6u-xavjxpmc2jkebec6ue7ilvb2yy.datawarehouse.fabric.microsoft.com",
+                        "artifactId": "f1b8f360-696a-43a6-9465-f1a777de548c",
+                        "workspaceId": "bd9b2ab8-d282-4054-905e-a13e85d43ac6"
+                      }
+                    }
+                  },
+                  "type": "DataWarehouseTable",
+                  "schema": [],
+                  "typeProperties": {}
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "variables": {
+      "Schema_Name": {
+        "type": "String"
+      },
+      "Table_Name": {
+        "type": "String"
+      },
+      "Incremental_Column": {
+        "type": "String"
+      },
+      "Incremental_value": {
+        "type": "String"
+      }
+    }
+  }
+}

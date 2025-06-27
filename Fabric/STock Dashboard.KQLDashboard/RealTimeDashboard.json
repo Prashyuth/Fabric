@@ -1,0 +1,99 @@
+{
+  "schema_version": "60",
+  "tiles": [
+    {
+      "id": "3c67d97d-9bf8-4ec8-9276-f3aacc9c9be1",
+      "title": "AVEGPRICE",
+      "visualType": "column",
+      "pageId": "3b2bcd85-2dcc-4436-9344-50909c698786",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 9,
+        "height": 7
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "9cfe5394-0f0b-45a8-9af6-c1ff58dfa7f0"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilter": [],
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "drillthrough": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        }
+      }
+    }
+  ],
+  "baseQueries": [],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "bd8f3245-7623-4081-a5ca-a056a5e2ded5",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "22862c68-1d97-4b2d-a042-2678619444a8",
+      "kind": "kusto-trident",
+      "scopeId": "kusto-trident",
+      "clusterUri": "",
+      "database": "e01fc4cd-8d27-bbfc-4508-2e7f14dd7abb",
+      "name": "Stock_Event_House",
+      "workspace": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "3b2bcd85-2dcc-4436-9344-50909c698786"
+    }
+  ],
+  "queries": [
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "22862c68-1d97-4b2d-a042-2678619444a8"
+      },
+      "text": "// Use 'take' to view a sample number of records in the table and check the data.\n Stock\n | where [\"time\"] > ago(5m)\n | summarize avgPrice = avg(todecimal(bidPrice)) by symbol\n | project symbol, avgPrice\n\n",
+      "id": "9cfe5394-0f0b-45a8-9af6-c1ff58dfa7f0",
+      "usedVariables": []
+    }
+  ]
+}

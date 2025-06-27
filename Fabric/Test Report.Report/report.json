@@ -1,0 +1,42 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.65\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "9a207b9849549ee6ceb8",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"e25004c7ef9a3a56162c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":178.65030674846625,\"y\":155.0920245398773,\"z\":0,\"width\":677.3006134969324,\"height\":422.0858895705521,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Item.Brand\"},{\"queryRef\":\"Sales.Gross_Measure\"},{\"queryRef\":\"Item.YTD Gross\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"i\",\"Entity\":\"Item\",\"Type\":0},{\"Name\":\"s\",\"Entity\":\"Sales\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"Brand\"},\"Name\":\"Item.Brand\",\"NativeReferenceName\":\"Brand\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Gross_Measure\"},\"Name\":\"Sales.Gross_Measure\",\"NativeReferenceName\":\"Gross_Measure\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"YTD Gross\"},\"Name\":\"Item.YTD Gross\",\"NativeReferenceName\":\"YTD Gross\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 422.09,
+          "width": 677.30,
+          "x": 178.65,
+          "y": 155.09,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

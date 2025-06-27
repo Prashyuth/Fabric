@@ -1,0 +1,622 @@
+[
+  {
+    "uniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991",
+    "payload": {
+      "name": "Package delivery sample",
+      "type": "samples"
+    },
+    "type": "container-v1"
+  },
+  {
+    "uniqueIdentifier": "e9440f89-0857-46bf-be76-a5c9e870f4f1",
+    "payload": {
+      "name": "Package delivery",
+      "runSettings": {
+        "startTime": "2025-06-23T05:13:26.7243335Z",
+        "stopTime": "2025-07-07T07:13:23.96Z"
+      },
+      "version": "V2_0",
+      "type": "PackageShipment",
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      }
+    },
+    "type": "simulatorSource-v1"
+  },
+  {
+    "uniqueIdentifier": "8045f4f3-73f5-4067-b6cc-a9c74d82403d",
+    "payload": {
+      "name": "Package delivery events",
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Event",
+        "instance": "{\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"SourceEventStep\",\"id\":\"f335d75f-2695-477a-b387-fb7902550321\",\"rows\":[{\"name\":\"SourceSelector\",\"kind\":\"SourceReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"e9440f89-0857-46bf-be76-a5c9e870f4f1\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea",
+    "payload": {
+      "name": "Package",
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Object"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "d869aa6f-8986-4343-ba16-9f5686b9f9f1",
+    "payload": {
+      "name": "PackageId",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"IdentityPartAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"IdPartStep\",\"id\":\"8160db8a-4347-4b74-bd88-a563afacd58c\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "ceb8c92e-fd18-4dca-ae61-2adbf1e1fc58",
+    "payload": {
+      "name": "PackageId tuple",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"IdentityTupleAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"IdStructureStep\",\"id\":\"f3d076f3-d561-4eb5-a60c-488027e74bf0\",\"rows\":[{\"name\":\"IdPart\",\"kind\":\"IdPart\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"d869aa6f-8986-4343-ba16-9f5686b9f9f1\"}],\"name\":\"idPart\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "81b9e694-e97a-4be0-8115-eca13f129879",
+    "payload": {
+      "name": "Delivery events",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Event",
+        "instance": "{\"templateId\":\"SplitEvent\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"SplitEventStep\",\"id\":\"3a4b9b53-5cae-4b4a-8b26-018ba5d1d4dd\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"8045f4f3-73f5-4067-b6cc-a9c74d82403d\"}],\"name\":\"event\"}]},{\"name\":\"FieldIdMapping\",\"kind\":\"FieldIdMapping\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"PackageId\"},{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"d869aa6f-8986-4343-ba16-9f5686b9f9f1\"}],\"name\":\"idPart\"}]},{\"name\":\"SplitEventOptions\",\"kind\":\"EventOptions\",\"arguments\":[{\"name\":\"isAuthoritative\",\"type\":\"boolean\",\"value\":true}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "9fd205a4-ac4f-442b-9e64-7b9286e6f4ab",
+    "payload": {
+      "name": "Current city",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"c01cca30-0d5b-41a7-acf1-193a1454cb35\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"City\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"a64bfa8b-c467-4bd3-b9f6-fdd9f87e037c\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "2fe82d58-6fb5-457b-9454-df8f48d4d435",
+    "payload": {
+      "name": "Delivery attempts",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"ae6f9ece-e0fe-4cc9-a030-94901726953a\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"DeliveryAttempts\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"b5853f55-3fca-47ca-875b-c56f22f78980\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Number\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "b9d07f75-16e0-416d-b0cd-cbe82f2f39d6",
+    "payload": {
+      "name": "Delivery status",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"ca63ec68-fa1a-4a5b-97cb-23d29da0c419\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"DeliveryState\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"e8f68e27-bdfa-4c62-b657-63dc5488be72\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "1eace0f1-24b2-4a04-8646-f713e4d253d3",
+    "payload": {
+      "name": "Exception reason",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"1bd79a68-ed2e-41c9-86c9-c6567762341f\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"Exception\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"abb6da82-fd1c-4e9c-b4ab-9355fac0cc17\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "9a2f601a-2911-4e92-b0fc-7d7ba7bd9110",
+    "payload": {
+      "name": "Hours in delivery",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"986407af-207a-4ad7-8a09-3d3a870d48e5\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"DeliveryAttemptHours\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"66dbf120-cc5c-4c5f-96aa-eb28f057b1ce\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Number\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "aa656d9f-743f-4a05-96dd-20284321cc49",
+    "payload": {
+      "name": "Humidity",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"ee792f15-9ffa-4075-8c0e-789a37dd038c\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"Humidity\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"4bc99df0-fe1c-4ec4-8c4e-d3305925273c\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Number\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "6144c9ec-e3ee-4c2a-b356-fbbc5119cb32",
+    "payload": {
+      "name": "Recipient email",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"ed4e6df8-2891-4c47-9b1d-dd6d676f5556\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"RecipientEmail\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"c9cc648a-95e6-4c45-84d7-a0ffaf8ca177\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "f0871196-afba-4223-a7a4-df15486275ba",
+    "payload": {
+      "name": "Special care contents",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"94e3c358-fd1c-4ea4-a86c-75775ad08b8b\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"SpecialCare\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"2cd1998f-6133-40c8-ba4f-006bb5ee510d\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "f90786e9-59e2-4cdb-933a-78cd2abd5c5a",
+    "payload": {
+      "name": "Temperature (°C)",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"a20f54a4-9ed2-48f0-bdf4-2c8af34ea1a4\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"Temperature\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"c5063037-47d6-44bf-9e45-c034546eb08b\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Number\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "683189a8-95d2-4c69-aaa1-8346c9a27fb5",
+    "payload": {
+      "name": "Express shipping requested",
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"EventTrigger\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"FieldsDefaultsStep\",\"id\":\"ee93659c-2e78-4efa-b5c2-7af481582461\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"8045f4f3-73f5-4067-b6cc-a9c74d82403d\"}],\"name\":\"event\"}]}]},{\"name\":\"EventDetectStep\",\"id\":\"0506cdea-5d06-498e-9f42-ba2582d54da6\",\"rows\":[{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"___type\"}]},{\"name\":\"TextValueCondition\",\"kind\":\"TextValueCondition\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"IsEqualTo\"},{\"name\":\"value\",\"type\":\"string\",\"value\":\"express_shipping_request\"}]}]},{\"name\":\"ActStep\",\"id\":\"450d61c7-f50b-483a-8ec4-dfa29607127b\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Express shipping requested\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Express shipping was just requested for this package.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}]}]}]}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "f4e1cc16-a45a-4848-9095-5e26aa7f62a0",
+    "payload": {
+      "name": "Package created",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"EventTrigger\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"FieldsDefaultsStep\",\"id\":\"a73cdb77-44c8-4516-8c43-a80c33e03289\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"name\":\"event\"}]}]},{\"name\":\"EventDetectStep\",\"id\":\"821c6b05-9bda-434d-8ab7-8e0ecbdf68fd\",\"rows\":[{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"___type\"}]},{\"name\":\"TextValueCondition\",\"kind\":\"TextValueCondition\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"IsEqualTo\"},{\"name\":\"value\",\"type\":\"string\",\"value\":\"package_created\"}]}]},{\"name\":\"ActStep\",\"id\":\"8bc5be1a-eaba-47f6-9141-314ba09c5607\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Package created\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"This package was just created.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}]}]}]}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "261ba446-e23a-4a1c-8a43-d6ad53e8ed5a",
+    "payload": {
+      "name": "Delivered",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"ScalarSelectStep\",\"id\":\"f44aeec3-8eec-48f2-9f74-992889ec234e\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"b9d07f75-16e0-416d-b0cd-cbe82f2f39d6\"}],\"name\":\"attribute\"}]}]},{\"name\":\"ScalarDetectStep\",\"id\":\"3f7a3d86-c146-4b89-846d-5724c9581336\",\"rows\":[{\"name\":\"TextValueCondition\",\"kind\":\"TextValueCondition\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"IsEqualTo\"},{\"name\":\"value\",\"type\":\"string\",\"value\":\"DeliveryAttemptSuccess\"}]},{\"name\":\"OccurrenceOption\",\"kind\":\"EachTime\",\"arguments\":[]}]},{\"name\":\"ActStep\",\"id\":\"70c227fd-f3d4-4dc2-aea5-12cad290d949\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"6144c9ec-e3ee-4c2a-b356-fbbc5119cb32\"}]}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Package delivered\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"This package was just delivered successfully.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}]}]}]}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "3c5c71f9-d897-489f-862c-6e0108cd5ac3",
+    "payload": {
+      "name": "Delivery failed",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"ScalarSelectStep\",\"id\":\"efec3c13-5a1c-461b-adbc-49ba5b21119d\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"b9d07f75-16e0-416d-b0cd-cbe82f2f39d6\"}],\"name\":\"attribute\"}]}]},{\"name\":\"ScalarDetectStep\",\"id\":\"d836578c-9bb9-4389-85bf-326021093aca\",\"rows\":[{\"name\":\"TextValueCondition\",\"kind\":\"TextValueCondition\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"IsEqualTo\"},{\"name\":\"value\",\"type\":\"string\",\"value\":\"DeliveryAttemptFailure\"}]},{\"name\":\"OccurrenceOption\",\"kind\":\"EachTime\",\"arguments\":[]}]},{\"name\":\"ActStep\",\"id\":\"ff0ce835-3c91-443e-af2a-124123d217d9\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Package delivery failed\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"This package had a failed delivery attempt. An attempt will be made on the next business day.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}]}]}]}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "a3c788c3-af52-4a5e-9669-474daacb2f17",
+    "payload": {
+      "name": "Picked up",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"ScalarSelectStep\",\"id\":\"e43020e7-7986-43bd-a93a-72ea2e12e6f4\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"b9d07f75-16e0-416d-b0cd-cbe82f2f39d6\"}],\"name\":\"attribute\"}]}]},{\"name\":\"ScalarDetectStep\",\"id\":\"916b1ef1-d8db-44a1-ac65-e76312190a96\",\"rows\":[{\"name\":\"TextChanges\",\"kind\":\"TextChanges\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"ChangesTo\"},{\"name\":\"value\",\"type\":\"string\",\"value\":\"InTransit\"}]},{\"name\":\"OccurrenceOption\",\"kind\":\"EachTime\",\"arguments\":[]}]},{\"name\":\"ActStep\",\"id\":\"95706504-f2ff-40a8-9ada-a72116cd58f7\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Package picked up\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"This package was just picked up for delivery.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}]}]}]}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "e5aacc19-82d5-4a8b-9162-897eba286741",
+    "payload": {
+      "name": "Above average for Seattle",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"ScalarSelectStep\",\"id\":\"c0a6e02c-8252-450e-87af-2c56780ee532\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"9a2f601a-2911-4e92-b0fc-7d7ba7bd9110\"}],\"name\":\"attribute\"}]},{\"name\":\"NumberSummary\",\"kind\":\"NumberSummary\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Average\"},{\"kind\":\"TimeDrivenWindowSpec\",\"type\":\"complex\",\"arguments\":[{\"name\":\"width\",\"type\":\"timeSpan\",\"value\":3600000.0},{\"name\":\"hop\",\"type\":\"timeSpan\",\"value\":3600000.0}],\"name\":\"window\"}]}]},{\"name\":\"ScalarDetectStep\",\"id\":\"f4516c69-8641-4b30-a072-2fbaf842a42c\",\"rows\":[{\"name\":\"NumberBecomes\",\"kind\":\"NumberBecomes\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"BecomesGreaterThan\"},{\"name\":\"value\",\"type\":\"number\",\"value\":1.0}]},{\"name\":\"OccurrenceOption\",\"kind\":\"EachTime\",\"arguments\":[]}]},{\"name\":\"DimensionalFilterStep\",\"id\":\"d567b4d8-269a-40e0-a0e2-1312ea8dd835\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"9fd205a4-ac4f-442b-9e64-7b9286e6f4ab\"}],\"name\":\"attribute\"}]},{\"name\":\"TextValueCondition\",\"kind\":\"TextValueCondition\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"IsEqualTo\"},{\"name\":\"value\",\"type\":\"string\",\"value\":\"Seattle\"}]}]},{\"name\":\"ActStep\",\"id\":\"605b0b4f-1b0f-4435-88cc-9fe7af595eae\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Package delivery time above average for Seattle\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"The delivery time of this package is now above average for Seattle.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}]}]}]}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "c87b16d4-28ae-4a38-a9fa-b5868df25cd8",
+    "payload": {
+      "name": "Outside allowed range",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"ScalarSelectStep\",\"id\":\"58438ab1-3194-4019-bf7f-143434cb1b48\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"aa656d9f-743f-4a05-96dd-20284321cc49\"}],\"name\":\"attribute\"}]}]},{\"name\":\"ScalarDetectStep\",\"id\":\"e0298469-ca8f-4081-9f62-86609819771b\",\"rows\":[{\"name\":\"NumberRangeCondition\",\"kind\":\"NumberRangeCondition\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"IsOutsideRange\"},{\"name\":\"low\",\"type\":\"number\",\"value\":30.0},{\"name\":\"includeLow\",\"type\":\"boolean\",\"value\":true},{\"name\":\"high\",\"type\":\"number\",\"value\":60.0},{\"name\":\"includeHigh\",\"type\":\"boolean\",\"value\":true}]},{\"name\":\"OccurrenceOption\",\"kind\":\"EachTime\",\"arguments\":[]}]},{\"name\":\"ActStep\",\"id\":\"0beea23f-8ab3-4841-960d-4dc2f66284a4\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Package humidity is either too high or too low\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"The humidity of this package has crossed above or below the allowed range.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}]}]}]}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "20b6e1f3-544c-4454-9b3b-41220809be19",
+    "payload": {
+      "name": "Too hot for medicine",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"ScalarSelectStep\",\"id\":\"c6cab62f-a251-4495-ab7b-e9104ec4b75c\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"f90786e9-59e2-4cdb-933a-78cd2abd5c5a\"}],\"name\":\"attribute\"}]},{\"name\":\"NumberSummary\",\"kind\":\"NumberSummary\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Average\"},{\"kind\":\"TimeDrivenWindowSpec\",\"type\":\"complex\",\"arguments\":[{\"name\":\"width\",\"type\":\"timeSpan\",\"value\":600000.0},{\"name\":\"hop\",\"type\":\"timeSpan\",\"value\":600000.0}],\"name\":\"window\"}]}]},{\"name\":\"ScalarDetectStep\",\"id\":\"2f39d34d-9e9c-4966-a200-cb4fc4df75b8\",\"rows\":[{\"name\":\"NumberBecomes\",\"kind\":\"NumberBecomes\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"BecomesGreaterThan\"},{\"name\":\"value\",\"type\":\"number\",\"value\":20.0}]},{\"name\":\"OccurrenceOption\",\"kind\":\"EachTime\",\"arguments\":[]}]},{\"name\":\"DimensionalFilterStep\",\"id\":\"1661b7bb-faff-4b52-8028-192e9ed27546\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"f0871196-afba-4223-a7a4-df15486275ba\"}],\"name\":\"attribute\"}]},{\"name\":\"TextValueCondition\",\"kind\":\"TextValueCondition\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"IsEqualTo\"},{\"name\":\"value\",\"type\":\"string\",\"value\":\"Medicine\"}]}]},{\"name\":\"ActStep\",\"id\":\"e1934ce1-e209-49c8-b488-a18999a431c2\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Package too hot for medicine\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"This temperature-sensitive package containing medicine has exceeded the allowed threshold.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}]}]}]}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "97f3242f-a457-4bfc-9337-9de6f030ff78",
+    "payload": {
+      "name": "Too cold for plants",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"ScalarSelectStep\",\"id\":\"a2dcb518-9c97-437c-bb10-12ff1783c378\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"f90786e9-59e2-4cdb-933a-78cd2abd5c5a\"}],\"name\":\"attribute\"}]},{\"name\":\"NumberSummary\",\"kind\":\"NumberSummary\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Average\"},{\"kind\":\"TimeDrivenWindowSpec\",\"type\":\"complex\",\"arguments\":[{\"name\":\"width\",\"type\":\"timeSpan\",\"value\":600000.0},{\"name\":\"hop\",\"type\":\"timeSpan\",\"value\":600000.0}],\"name\":\"window\"}]}]},{\"name\":\"ScalarDetectStep\",\"id\":\"653d7cda-f6ca-43b5-9b6e-ad68ee1f50b8\",\"rows\":[{\"name\":\"NumberBecomes\",\"kind\":\"NumberBecomes\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"BecomesLessThan\"},{\"name\":\"value\",\"type\":\"number\",\"value\":5.0}]},{\"name\":\"OccurrenceOption\",\"kind\":\"EachTime\",\"arguments\":[]}]},{\"name\":\"DimensionalFilterStep\",\"id\":\"ff839e40-d483-4d6e-ab5b-fa9a19965295\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"f0871196-afba-4223-a7a4-df15486275ba\"}],\"name\":\"attribute\"}]},{\"name\":\"TextValueCondition\",\"kind\":\"TextValueCondition\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"IsEqualTo\"},{\"name\":\"value\",\"type\":\"string\",\"value\":\"Plants\"}]}]},{\"name\":\"ActStep\",\"id\":\"cf59f9d0-dc48-4973-b2f1-dc8866edc737\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Package too cold for plants\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"This temperature-sensitive package containing plants has dropped below the allowed threshold.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}]}]}]}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "6aacc0c3-a35b-4cb3-ae2d-dd9e89b7cffb",
+    "payload": {
+      "name": "Weather",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"ScalarSelectStep\",\"id\":\"0f2388b2-6de0-49b7-b265-b46488753ab2\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"1eace0f1-24b2-4a04-8646-f713e4d253d3\"}],\"name\":\"attribute\"}]}]},{\"name\":\"ScalarDetectStep\",\"id\":\"b453bf59-eff2-450e-8869-4b1dc0a64aae\",\"rows\":[{\"name\":\"TextValueCondition\",\"kind\":\"TextValueCondition\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"IsEqualTo\"},{\"name\":\"value\",\"type\":\"string\",\"value\":\"Weather\"}]},{\"name\":\"OccurrenceOption\",\"kind\":\"EachTime\",\"arguments\":[]}]},{\"name\":\"ActStep\",\"id\":\"1182d126-c9fb-4c3b-82a6-497e111e8e0f\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Package delivery failed due to weather.\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"This package could not be delivered due to weather delays.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}]}]}]}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "00329e36-9579-4d4f-b0a0-da83247452ad",
+    "payload": {
+      "name": "Package delivery events alert",
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"steps\":[{\"id\":\"51cdadd3-a043-42b2-900c-49b300b485d1\",\"name\":\"FieldsDefaultsStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"8045f4f3-73f5-4067-b6cc-a9c74d82403d\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"}]},{\"id\":\"07e5fd57-719c-441b-8283-8d14d6011932\",\"name\":\"EventDetectStep\",\"rows\":[{\"arguments\":[],\"kind\":\"OnEveryValue\",\"name\":\"OnEveryValue\"}]},{\"id\":\"955c4c26-f87d-4f54-93bf-d27fd8aed572\",\"name\":\"ActStep\",\"rows\":[{\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"en-us\"},{\"name\":\"sentTo\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"copyTo\",\"type\":\"array\",\"values\":[]},{\"name\":\"bCCTo\",\"type\":\"array\",\"values\":[]},{\"name\":\"subject\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Activator alert Package delivery events alert\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"The condition for 'Package delivery events alert' has been met\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}],\"kind\":\"EmailMessage\",\"name\":\"EmailBinding\"}]}],\"templateId\":\"EventTrigger\",\"templateVersion\":\"1.2\"}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "e269cdb4-769a-404d-8e4d-6dfccc62f026",
+    "payload": {
+      "name": "Delivery events alert",
+      "parentObject": {
+        "targetUniqueIdentifier": "30b22f49-7360-44b5-91ee-e44bdccb9dea"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"steps\":[{\"id\":\"2409be1c-e780-473a-b82d-23c25fd5d1a1\",\"name\":\"FieldsDefaultsStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"81b9e694-e97a-4be0-8115-eca13f129879\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"}]},{\"id\":\"7de3216b-d87f-439c-9b13-70456aa77877\",\"name\":\"EventDetectStep\",\"rows\":[{\"arguments\":[],\"kind\":\"OnEveryValue\",\"name\":\"OnEveryValue\"}]},{\"id\":\"a422896c-1255-4f3b-8aed-1a03b4857af6\",\"name\":\"ActStep\",\"rows\":[{\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"en-us\"},{\"name\":\"sentTo\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"copyTo\",\"type\":\"array\",\"values\":[]},{\"name\":\"bCCTo\",\"type\":\"array\",\"values\":[]},{\"name\":\"subject\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Activator alert Delivery events alert\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"The condition for 'Delivery events alert' has been met\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}],\"kind\":\"EmailMessage\",\"name\":\"EmailBinding\"}]}],\"templateId\":\"EventTrigger\",\"templateVersion\":\"1.2\"}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "5c207a48-dd03-424e-8593-5864227b579b",
+    "payload": {
+      "name": "Package2",
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Object"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "f489e707-8b89-4ab2-bb3f-ad65ed62a975",
+    "payload": {
+      "name": "PackageId",
+      "parentObject": {
+        "targetUniqueIdentifier": "5c207a48-dd03-424e-8593-5864227b579b"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"steps\":[{\"id\":\"94db99a1-841e-4dbd-aaec-bd6c5747615d\",\"name\":\"IdPartStep\",\"rows\":[{\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}],\"kind\":\"TypeAssertion\",\"name\":\"TypeAssertion\"}]}],\"templateId\":\"IdentityPartAttribute\",\"templateVersion\":\"1.2\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "03daa9e4-cdcf-425b-a9d0-4f6bd4bc7ab1",
+    "payload": {
+      "name": "PackageId",
+      "parentObject": {
+        "targetUniqueIdentifier": "5c207a48-dd03-424e-8593-5864227b579b"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"steps\":[{\"id\":\"614f8fc1-516b-45d6-b4cc-0aceb5562f15\",\"name\":\"IdStructureStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"f489e707-8b89-4ab2-bb3f-ad65ed62a975\"}],\"kind\":\"AttributeReference\",\"name\":\"idPart\",\"type\":\"complex\"}],\"kind\":\"IdPart\",\"name\":\"IdPart\"}]}],\"templateId\":\"IdentityTupleAttribute\",\"templateVersion\":\"1.2\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "ddfa126b-b21d-4450-b267-7057c3615015",
+    "payload": {
+      "name": "Package delivery events",
+      "parentObject": {
+        "targetUniqueIdentifier": "5c207a48-dd03-424e-8593-5864227b579b"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Event",
+        "instance": "{\"steps\":[{\"id\":\"38a68687-c7b3-4ef2-a36f-bc2da02a03c9\",\"name\":\"SplitEventStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"8045f4f3-73f5-4067-b6cc-a9c74d82403d\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"PackageId\"},{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"f489e707-8b89-4ab2-bb3f-ad65ed62a975\"}],\"kind\":\"AttributeReference\",\"name\":\"idPart\",\"type\":\"complex\"}],\"kind\":\"FieldIdMapping\",\"name\":\"FieldIdMapping\"},{\"arguments\":[{\"name\":\"isAuthoritative\",\"type\":\"boolean\",\"value\":true}],\"kind\":\"EventOptions\",\"name\":\"SplitEventOptions\"}]}],\"templateId\":\"SplitEvent\",\"templateVersion\":\"1.2\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "347d1ee9-ec3e-4c5c-89e1-59b6890f3858",
+    "payload": {
+      "name": "City",
+      "parentObject": {
+        "targetUniqueIdentifier": "5c207a48-dd03-424e-8593-5864227b579b"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"steps\":[{\"id\":\"7735ade7-af66-40e8-9a1a-27664723721f\",\"name\":\"EventSelectStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"ddfa126b-b21d-4450-b267-7057c3615015\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"City\"}],\"kind\":\"EventField\",\"name\":\"EventFieldSelector\"}]},{\"id\":\"8d9f2ba9-cf80-49c8-963b-ca21c5ae0fc5\",\"name\":\"EventComputeStep\",\"rows\":[{\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}],\"kind\":\"TypeAssertion\",\"name\":\"TypeAssertion\"}]}],\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.2\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "bed53d72-5781-44d5-a704-5d75ba4a73fb",
+    "payload": {
+      "name": "HoursInTransit",
+      "parentObject": {
+        "targetUniqueIdentifier": "5c207a48-dd03-424e-8593-5864227b579b"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"steps\":[{\"id\":\"59167446-be2e-4426-bad9-f48b8ecd4ee6\",\"name\":\"EventSelectStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"ddfa126b-b21d-4450-b267-7057c3615015\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"HoursInTransit\"}],\"kind\":\"EventField\",\"name\":\"EventFieldSelector\"}]},{\"id\":\"667895ed-7e66-4f30-b5e0-cd467a2522f3\",\"name\":\"EventComputeStep\",\"rows\":[{\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Number\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}],\"kind\":\"TypeAssertion\",\"name\":\"TypeAssertion\"}]}],\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.2\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "f6839927-9ecf-4a50-98c1-377825561c8d",
+    "payload": {
+      "name": "Average Transit Time Above Target",
+      "parentObject": {
+        "targetUniqueIdentifier": "5c207a48-dd03-424e-8593-5864227b579b"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "eb4d1c63-3f83-4a01-ba93-3448555b5991"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"steps\":[{\"id\":\"ea222e53-712e-442f-af04-20648f587813\",\"name\":\"ScalarSelectStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"bed53d72-5781-44d5-a704-5d75ba4a73fb\"}],\"kind\":\"AttributeReference\",\"name\":\"attribute\",\"type\":\"complex\"}],\"kind\":\"Attribute\",\"name\":\"AttributeSelector\"}]},{\"id\":\"daa88f17-a0ef-47df-a011-638eaa3e81ba\",\"name\":\"ScalarDetectStep\",\"rows\":[{\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Changes\"}],\"kind\":\"AnyValueChange\",\"name\":\"AnyValueChange\"}]},{\"id\":\"1eb52037-764d-4cab-9800-57d4bbf7af36\",\"name\":\"ActStep\",\"rows\":[{\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"en-us\"},{\"name\":\"sentTo\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"User1@tgs9703167819gmail.onmicrosoft.com\"}]},{\"name\":\"copyTo\",\"type\":\"array\",\"values\":[]},{\"name\":\"bCCTo\",\"type\":\"array\",\"values\":[]},{\"name\":\"subject\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Activator alert HoursInTransit alert\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"The condition for 'HoursInTransit alert' has been met\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}],\"kind\":\"EmailMessage\",\"name\":\"EmailBinding\"}]}],\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.2\"}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  }
+]

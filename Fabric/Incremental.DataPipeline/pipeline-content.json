@@ -1,0 +1,58 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Incremental",
+        "type": "RefreshDataflow",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "dataflowId": "8682da62-99e6-401d-8ee8-dd236c924f13",
+          "workspaceId": "bd9b2ab8-d282-4054-905e-a13e85d43ac6",
+          "notifyOption": "NoNotification",
+          "dataflowType": "Dataflow-Gen2"
+        }
+      },
+      {
+        "name": "call Load Sales",
+        "type": "SqlServerStoredProcedure",
+        "dependsOn": [
+          {
+            "activity": "Incremental",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "storedProcedureName": "[dbo].[loadSales]"
+        },
+        "linkedService": {
+          "name": "Silver",
+          "properties": {
+            "annotations": [],
+            "type": "DataWarehouse",
+            "typeProperties": {
+              "endpoint": "p7ub6dwkovcevahrbanqrwyk6u-xavjxpmc2jkebec6ue7ilvb2yy.datawarehouse.fabric.microsoft.com",
+              "artifactId": "dfdfa5ea-aaaf-495e-b088-136063edd1c8",
+              "workspaceId": "bd9b2ab8-d282-4054-905e-a13e85d43ac6"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

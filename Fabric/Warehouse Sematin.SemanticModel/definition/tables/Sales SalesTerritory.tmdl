@@ -1,0 +1,75 @@
+table 'Sales SalesTerritory'
+	lineageTag: f2b2074c-5387-4a73-a6e5-70e375cec5b8
+	sourceLineageTag: [dbo].[Sales SalesTerritory]
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7ad3fa54-0ca3-4cd5-a8b6-9613e9aadded
+		sourceLineageTag: TerritoryID
+		summarizeBy: count
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: eaf90124-4ccf-4c70-8ccd-89baf0984eab
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ecc9fe66-3c72-4f20-8f3b-60d28a67ccad
+		sourceLineageTag: CountryRegionCode
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: caa8c61c-15e8-4dc7-b8a2-6360830fe4c0
+		sourceLineageTag: Group
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ef31424b-0851-483f-ac87-e7f21052758b
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 90eb53a1-2680-4bc0-b3f5-167fde118eaf
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesTerritory' = entity
+		mode: directLake
+		source
+			entityName: Sales SalesTerritory
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

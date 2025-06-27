@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "P_SQLonPremDataLoad"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "178ca127-dfdf-9c75-44d0-7718bf02c2d8"
+  }
+}

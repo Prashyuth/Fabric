@@ -1,0 +1,88 @@
+[
+  {
+    "name": "sales_nospace_2",
+    "path": "/Tables",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "f918c097-df81-4ffd-bfcf-83373dcfc5ea",
+        "location": "https://vinidra.dfs.core.windows.net",
+        "subpath": "/fabric/Parquet/sales_nospace"
+      }
+    }
+  },
+  {
+    "name": "sales_nospace_1",
+    "path": "/Tables",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "f918c097-df81-4ffd-bfcf-83373dcfc5ea",
+        "location": "https://vinidra.dfs.core.windows.net",
+        "subpath": "/fabric/Parquet/sales_nospace"
+      }
+    }
+  },
+  {
+    "name": "sales_nospace",
+    "path": "/Tables",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "f918c097-df81-4ffd-bfcf-83373dcfc5ea",
+        "location": "https://vinidra.dfs.core.windows.net",
+        "subpath": "/fabric/Parquet/sales_nospace"
+      }
+    }
+  },
+  {
+    "name": "Sales SalesOrderDetail",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo/Sales SalesOrderDetail",
+        "itemId": "63edd1c8-1360-b088-495e-aaafdfdfa5ea",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Warehouse"
+      }
+    }
+  },
+  {
+    "name": "sales",
+    "path": "/Tables",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "f918c097-df81-4ffd-bfcf-83373dcfc5ea",
+        "location": "https://vinidra.dfs.core.windows.net",
+        "subpath": "/fabric/Parquet2/sales"
+      }
+    }
+  },
+  {
+    "name": "Customer_1",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/Customer",
+        "itemId": "465761da-5742-4164-abf6-353a16150745",
+        "workspaceId": "6c08d562-343d-475a-9e94-dccece700733"
+      }
+    }
+  },
+  {
+    "name": "Customer Shortcut",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/Sales/Customer",
+        "itemId": "6a0ff7a3-5b1b-84e3-4a0c-8ac66f5ed366",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  }
+]

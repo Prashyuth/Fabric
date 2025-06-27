@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Environment",
+    "displayName": "sadq",
+    "description": "Environment"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "46ec6864-0dc1-89f3-41e0-4eef79b7ff86"
+  }
+}

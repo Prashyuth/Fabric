@@ -1,0 +1,56 @@
+table 'Sales SalesPerson'
+	lineageTag: fe77bba2-d4c5-4e91-9ebb-f65306ac8b45
+	sourceLineageTag: [dbo].[Sales SalesPerson]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ca52f7d6-3104-488f-9868-143557643f3b
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 883e0763-1377-46c2-bdbf-3331039a142a
+		sourceLineageTag: TerritoryID
+		summarizeBy: count
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9d8e7512-7e2b-4d4a-bc7c-b40200385f05
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 972bdebf-5322-45cb-83e2-80c957e8476f
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesPerson' = entity
+		mode: directLake
+		source
+			entityName: Sales SalesPerson
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

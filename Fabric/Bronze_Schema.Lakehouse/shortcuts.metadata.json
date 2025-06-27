@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Sales SalesTerritory",
+    "path": "/Files/external_products1",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo/Sales SalesTerritory",
+        "itemId": "63edd1c8-1360-b088-495e-aaafdfdfa5ea",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Warehouse"
+      }
+    }
+  },
+  {
+    "name": "4900D3A4-246E-40FB-A37C-F535568EBC14",
+    "path": "/Files",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo/Sales.Currency/4900D3A4-246E-40FB-A37C-F535568EBC14",
+        "itemId": "63edd1c8-1360-b088-495e-aaafdfdfa5ea",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Warehouse"
+      }
+    }
+  }
+]

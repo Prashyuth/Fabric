@@ -1,0 +1,216 @@
+table 'Sales SalesOrderDetail'
+	lineageTag: ee47363e-fc1e-4e99-8078-2f76febb121c
+	sourceLineageTag: [dbo].[Sales SalesOrderDetail]
+
+	column SalesOrderID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3acc8d02-cf97-4e26-932f-aa7351dba57f
+		sourceLineageTag: SalesOrderID
+		summarizeBy: count
+		sourceColumn: SalesOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderDetailID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 75aff37a-9d26-43fc-bf9a-c233f4635013
+		sourceLineageTag: SalesOrderDetailID
+		summarizeBy: count
+		sourceColumn: SalesOrderDetailID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CarrierTrackingNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 14311d61-7ed7-4930-bc8a-56c96720b6a8
+		sourceLineageTag: CarrierTrackingNumber
+		summarizeBy: none
+		sourceColumn: CarrierTrackingNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQty
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 210e691c-a6c4-4b60-8f84-83907487a886
+		sourceLineageTag: OrderQty
+		summarizeBy: sum
+		sourceColumn: OrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5cdb7b04-638b-4b38-90e1-54fb449bfcd2
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpecialOfferID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f1c5812e-3276-47f9-9ba4-027bc22b4c21
+		sourceLineageTag: SpecialOfferID
+		summarizeBy: count
+		sourceColumn: SpecialOfferID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineTotal
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: cc5ad906-80ba-441a-be83-460cb6fa2b89
+		sourceLineageTag: LineTotal
+		summarizeBy: sum
+		sourceColumn: LineTotal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2b758c89-f2ad-4a85-9840-6ffde91e204e
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 117da111-c318-4608-b3c8-3b4cd68978a2
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 33f1454d-91b2-4f3f-8194-51266489e30e
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1e8cf05b-2611-4f6c-9f6c-2626b84b2b41
+		sourceLineageTag: ProductNumber
+		summarizeBy: none
+		sourceColumn: ProductNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c06385f5-27d9-455b-966c-aae531a36c69
+		sourceLineageTag: Color
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column Size
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8210c0a9-5672-4b0f-8e50-16d29618eeed
+		sourceLineageTag: Size
+		summarizeBy: none
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: 8704c0fa-674d-4e72-a784-9d634d82f934
+		sourceLineageTag: Weight
+		summarizeBy: sum
+		sourceColumn: Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DaysToManufacture
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 02ebbb1a-a22c-49b7-b91e-bb74b7ce1f88
+		sourceLineageTag: DaysToManufacture
+		summarizeBy: sum
+		sourceColumn: DaysToManufacture
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductLine
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8ddbf00b-fb36-46e6-be77-b6e92fc9c824
+		sourceLineageTag: ProductLine
+		summarizeBy: none
+		sourceColumn: ProductLine
+
+		annotation SummarizationSetBy = Automatic
+
+	column Style
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 225e6685-7e1d-4ca6-b788-aa479d0c1f2a
+		sourceLineageTag: Style
+		summarizeBy: none
+		sourceColumn: Style
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0d267b86-a684-4866-8503-ede98393ab6a
+		sourceLineageTag: ProductSubcategoryID
+		summarizeBy: count
+		sourceColumn: ProductSubcategoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductModelID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a7b12c27-1111-439f-a7c7-9ddc89cf8e8a
+		sourceLineageTag: ProductModelID
+		summarizeBy: count
+		sourceColumn: ProductModelID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesOrderDetail' = entity
+		mode: directLake
+		source
+			entityName: Sales SalesOrderDetail
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

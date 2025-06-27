@@ -1,0 +1,25 @@
+CREATE TABLE [dbo].[SalesOrderHeader] (
+
+	[SalesOrderID] int NULL, 
+	[RevisionNumber] smallint NULL, 
+	[OrderDate] datetime2(6) NULL, 
+	[DueDate] datetime2(6) NULL, 
+	[ShipDate] datetime2(6) NULL, 
+	[Status] smallint NULL, 
+	[OnlineOrderFlag] bit NULL, 
+	[SalesOrderNumber] varchar(8000) NULL, 
+	[PurchaseOrderNumber] varchar(8000) NULL, 
+	[AccountNumber] varchar(8000) NULL, 
+	[CustomerID] int NULL, 
+	[BillToAddressID] int NULL, 
+	[ShipToAddressID] int NULL, 
+	[ShipMethod] varchar(2000) NULL, 
+	[CreditCardApprovalCode] varchar(8000) NULL, 
+	[SubTotal] varchar(8000) NULL, 
+	[TaxAmt] varchar(8000) NULL, 
+	[Freight] varchar(8000) NULL, 
+	[TotalDue] varchar(8000) NULL, 
+	[Comment] varchar(8000) NULL, 
+	[rowguid] varchar(8000) NULL, 
+	[ModifiedDate] datetime2(6) NULL
+);
