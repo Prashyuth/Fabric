@@ -4,6 +4,56 @@
   "name": "Dataflow 1",
   "queryGroups": [],
   "documentLocale": "en-US",
-  "queriesMetadata": {},
-  "connections": []
+  "queriesMetadata": {
+    "Item": {
+      "queryId": "fa4c4ae9-2330-4c76-b4d9-a9e2971c5ff7",
+      "queryName": "Item",
+      "loadEnabled": false
+    },
+    "Customer": {
+      "queryId": "e81f5bcd-102f-44d8-9c78-37a428d974a0",
+      "queryName": "Customer"
+    },
+    "Sales": {
+      "queryId": "6c875e05-55b5-45a7-8d78-4cdd388b22bf",
+      "queryName": "Sales"
+    },
+    "Geography": {
+      "queryId": "34e19a11-ead2-48d7-81ab-c5832303b3c3",
+      "queryName": "Geography"
+    },
+    "Item_DataDestination": {
+      "queryId": "6c116c48-df01-4eb3-ac6f-083e09243395",
+      "queryName": "Item_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://github.com/Prashyuth/Fabric/blob/main/Sales%20Data%20for%20Fabric%20(2).xlsx",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"2c2965b0-babc-447d-b9c0-8af37623bee1\",\"DatasourceId\":\"4ef1f489-b212-4a72-b92b-005eec7162a2\"}"
+    },
+    {
+      "path": "https://github.com/Prashyuth/Fabric/Raw/main/Sales%20Data%20for%20Fabric%20(2).xlsx",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"2c2965b0-babc-447d-b9c0-8af37623bee1\",\"DatasourceId\":\"1a2b205c-6eb6-4f7f-a276-84a33e5e34cc\"}"
+    },
+    {
+      "path": "PowerPlatformDataflows",
+      "kind": "PowerPlatformDataflows",
+      "connectionId": "{\"ClusterId\":\"2c2965b0-babc-447d-b9c0-8af37623bee1\",\"DatasourceId\":\"333476e5-0ff4-4645-a649-2e787ff9ac74\"}"
+    },
+    {
+      "path": "https://github.com/Prashyuth/Fabric/raw/refs/heads/main/Sales%20Data%20for%20Fabric%20(2).xlsx",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"2c2965b0-babc-447d-b9c0-8af37623bee1\",\"DatasourceId\":\"24e29f0b-1cc5-422d-a4e5-4540ae1f3b6d\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"2c2965b0-babc-447d-b9c0-8af37623bee1\",\"DatasourceId\":\"a4080e34-a18d-4336-836e-9961630b86cd\"}"
+    }
+  ]
 }
