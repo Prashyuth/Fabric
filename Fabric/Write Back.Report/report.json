@@ -1,0 +1,69 @@
+{
+  "config": "{\"version\":\"5.65\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.65\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "e79daad886202016081b",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"6e8026a202e5723c6ea0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":35.73997770129429,\"y\":39.71108633477144,\"z\":0,\"width\":319.67424499491005,\"height\":569.8540889039701,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"SalesLT ProductModel.Name\"},{\"queryRef\":\"SalesLT ProductModelProductDescription.ProductModelID\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"SalesLT ProductModel\",\"Type\":0},{\"Name\":\"s1\",\"Entity\":\"SalesLT ProductModelProductDescription\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Name\"},\"Name\":\"SalesLT ProductModel.Name\",\"NativeReferenceName\":\"Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s1\"}},\"Property\":\"ProductModelID\"},\"Name\":\"SalesLT ProductModelProductDescription.ProductModelID\",\"NativeReferenceName\":\"ProductModelID\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 569.85,
+          "width": 319.67,
+          "x": 35.74,
+          "y": 39.71,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"b29d7afb014ea62e70b0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":366.27943873240883,\"y\":243.06101003440958,\"z\":2001,\"width\":913.1667113098304,\"height\":366.27943873240883,\"tabOrder\":2001}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"SalesLT ProductModel.Name\"},{\"queryRef\":\"SalesLT ProductDescription.Description\"},{\"queryRef\":\"SalesLT ProductDescription.ModifiedDate\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"SalesLT ProductModel\",\"Type\":0},{\"Name\":\"s1\",\"Entity\":\"SalesLT ProductDescription\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Name\"},\"Name\":\"SalesLT ProductModel.Name\",\"NativeReferenceName\":\"Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s1\"}},\"Property\":\"Description\"},\"Name\":\"SalesLT ProductDescription.Description\",\"NativeReferenceName\":\"Description\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s1\"}},\"Property\":\"ModifiedDate\"},\"Name\":\"SalesLT ProductDescription.ModifiedDate\",\"NativeReferenceName\":\"ModifiedDate\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s1\"}},\"Property\":\"Description\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 366.28,
+          "width": 913.17,
+          "x": 366.28,
+          "y": 243.06,
+          "z": 2001.00
+        },
+        {
+          "config": "{\"name\":\"d2fc554d325671465782\",\"layouts\":[{\"id\":0,\"position\":{\"x\":589.7096320713558,\"y\":57.581075185418584,\"z\":1000,\"width\":295.8475931940472,\"height\":125.08992195453003,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"textSlicer\",\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Write a New Product Description'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 125.09,
+          "width": 295.85,
+          "x": 589.71,
+          "y": 57.58,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"de83a8ce3d6c58e4be5a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":786.2795094284744,\"y\":182.6709971399486,\"z\":2000,\"width\":99.27771583692859,\"height\":39.71108633477144,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'blank'\"}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"leftMargin\":{\"expr\":{\"Literal\":{\"Value\":\"20L\"}}},\"iconSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}},\"selector\":{\"id\":\"loading\"}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Submitting'\"}}}},\"selector\":{\"id\":\"loading\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'DataFunction'\"}}},\"dataFunction\":{\"kind\":\"ItemLocation\",\"byReference\":{\"itemId\":{\"expr\":{\"Literal\":{\"Value\":\"'2b81b089-cdda-4008-8a65-2bfc545e0c70'\"}}},\"workspaceId\":{\"expr\":{\"Literal\":{\"Value\":\"'bd9b2ab8-d282-4054-905e-a13e85d43ac6'\"}}}},\"metadata\":{\"dataFunction\":{\"name\":\"write_one_to_sql_db\",\"autoRefresh\":false,\"parameters\":[{\"name\":\"productDescription\",\"dataType\":\"string\",\"isOptional\":false,\"type\":\"SlicerParameter\",\"slicer\":\"d2fc554d325671465782\",\"autoClear\":false},{\"name\":\"productModelId\",\"dataType\":\"number\",\"isOptional\":false,\"type\":\"ValueParameter\",\"value\":{\"expr\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"SalesLT ProductModel\"}},\"Property\":\"ProductModelID\"}},\"Function\":4}}}}]}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Submit'\"}}},\"heading\":{\"expr\":{\"Literal\":{\"Value\":\"'Heading5'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 39.71,
+          "width": 99.28,
+          "x": 786.28,
+          "y": 182.67,
+          "z": 2000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

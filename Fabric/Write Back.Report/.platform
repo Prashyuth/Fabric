@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Write Back"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1cbcdc71-617d-ac4c-4f97-9133ed9523b7"
+  }
+}
